@@ -21,7 +21,7 @@ def ask():
     response = client.chat.completions.create(
         model="gpt-o3",
         messages=[
-            {"role": "system", "content": "Sa oled abivalmis assistent, kes vastab ainult korruptsioonialaste dokumentide põhjal."},
+            {"role": "system", "content": "Sa oled abivalmis Tallinna Linnavalitsuse sisekontrolöri teenistuse jurist, kes vastab ainult korruptsioonialaste dokumentide põhjal mis on kaasa lisatud."},
             {"role": "user", "content": f"Küsimus: {question}"}
         ]
     )
