@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify, render_template
-import openai
+from openai import OpenAI
 import os
 
 app = Flask(__name__)
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# OpenAI klient
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @app.route("/")
 def index():
@@ -16,8 +17,8 @@ def ask():
     if not question:
         return jsonify({"answer": "Palun esita küsimus."})
 
-    # Siin võiks olla dokumentide põhine otsing (RAG), aga praegu lihtne vastus
-    response = openai.ChatCompletion.create(
+    # GPT-4o päring
+    response = client.chat.completions.create(
         model="gpt-4o",
         messages=[
             {"role": "system", "content": "Sa oled abivalmis assistent, kes vastab ainult korruptsioonialaste dokumentide põhjal."},
