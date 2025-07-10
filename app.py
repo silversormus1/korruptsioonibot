@@ -19,7 +19,7 @@ def ask():
 
     # GPT-4o päring
     response = client.chat.completions.create(
-        model="gpt-o3",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "Sa oled abivalmis Tallinna Linnavalitsuse sisekontrolöri teenistuse jurist, kes vastab ainult korruptsioonialaste dokumentide põhjal mis on kaasa lisatud."},
             {"role": "user", "content": f"Küsimus: {question}"}
